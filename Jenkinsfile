@@ -12,9 +12,9 @@ pipeline {
         stage('Stop all') {
             steps {
                 echo 'Stop all..'
-                bat 'chcp 65001 && forever stopall'  // Устанавливаем кодировку UTF-8 перед выполнением команды
+                bat 'forever stopall'
             }
-        }        
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying.'
