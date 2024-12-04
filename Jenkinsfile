@@ -5,19 +5,19 @@ pipeline {
         stage('Install') {
             steps {
                 echo 'Install..'
-                sh 'npm install'
+                bat 'npm install'
             }
         }
         stage('Stop all') {
             steps {
                 echo 'Stop all..'
-                sh 'forever stopall'
+                bat 'forever stopall'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying..'
-                sh 'BUILD_ID=dontKillMe pm2 start app.js'
+                bat 'set BUILD_ID=dontKillMe && pm2 start app.js'
             }
         }
     }
