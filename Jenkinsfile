@@ -12,6 +12,12 @@ pipeline {
                 bat 'npm install'
             }
         }
+         stage('Stop all') {
+            steps {
+                echo 'Stop all..'
+                bat 'forever stopall'
+            }
+        }
         stage('Deploy') {
             steps {
                 echo 'Deploying..'
