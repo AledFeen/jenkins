@@ -1,6 +1,12 @@
 pipeline {
     agent any
     stages {
+        stage('Install forever') {
+            steps {
+                echo 'Installing forever...'
+                bat 'npm install -g forever'  // Установка глобально через npm
+            }
+        }
         stage('Check Files') {
             steps {
                 bat 'if not exist package.json (exit /b 1)'
@@ -12,7 +18,7 @@ pipeline {
                 bat 'npm install'
             }
         }
-         stage('Stop all') {
+        stage('Stop all') {
             steps {
                 echo 'Stop all..'
                 bat 'forever stopall'
